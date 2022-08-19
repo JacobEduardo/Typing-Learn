@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.2",
+    "morgan": "^1.10.0"
+  },
+  "name": "typing-learn",
+  "description": "Web application to practice English and typing.",
+  "version": "1.0.0",
+  "main": "nodejs.js",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobEduardo/Typing-Learn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JacobEduardo/Typing-Learn/issues"
+  },
+  "homepage": "https://github.com/JacobEduardo/Typing-Learn#readme"
+}
