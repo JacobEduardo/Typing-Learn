@@ -1,13 +1,21 @@
 const express = require('express')
 const app = express()
 const port = 8081
-//const morgan = require('morgan')
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
-app.use('/', require('./router/MyRoutes'));
-app.use('/add_text', require('./router/add_text'));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+
+const db = require("./Conexion")
+db.conexionMongoDB();
+
+
+app.use('/texts', require('./router/CRUD_texts'));
 
 app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views')
 
 app.use((req, res, next) => {
   res.status(404).render("404", {

@@ -1,5 +1,17 @@
-<%- include('template/head', {tituloweb: 'Inicio EJS'}); %>
-<h1>Hola a EJS <%= titulo %></h1>
-</body>
+<%- include('template/head.ejs') %>
 
-</html>
+Hola estas en add_text
+
+<form action="/texts/add_text" method="POST">
+    <input 
+        type="text"
+        name="nombre"
+    >
+    <input 
+        type="text"
+        name="descripcion"
+    >
+    <button type="submit" >Agregar</button>
+</form>
+
+<%- include('template/footer.ejs') %>
