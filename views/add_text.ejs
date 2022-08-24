@@ -2,7 +2,7 @@
 
 Hola estas en add_text
 
-<form action="/texts/add_text" method="POST">
+<form action="/texts/add_text" method="post" enctype="multipart/form-data">
     <input 
         type="text"
         name="nombre"
@@ -11,6 +11,7 @@ Hola estas en add_text
         type="text"
         name="descripcion"
     >
+    <input type="file" name="audio">
     <button type="submit" >Agregar</button>
 </form>
 

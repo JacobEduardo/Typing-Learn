@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const textSchema = new Schema({
   nombre:  String,
-  descripcion: String
+  descripcion: String,
+  audio_name: String
 });
 
 // Crear el modelo
