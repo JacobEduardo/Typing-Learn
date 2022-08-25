@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const textSchema = new Schema({
-  nombre:  String,
-  descripcion: String,
-  audio_name: String
+  english_text:  String,
+  spanish_text: String,
+  audio_text: String
 });
 
 // Crear el modelo

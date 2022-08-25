@@ -11,11 +11,10 @@ app.use(bodyParser.json())
 const db = require("./Conexion")
 db.conexionMongoDB();
 
-
-app.use('/texts', require('./router/CRUD_texts'));
-
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views')
+
+app.use('/', require('./router/texts'));
 
 app.use((req, res, next) => {
   res.status(404).render("404", {
