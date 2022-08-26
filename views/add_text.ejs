@@ -2,7 +2,13 @@
 
 Hola estas en add_text
 
-<form action="/add_text" method="post" enctype="multipart/form-data">
+<form action="/texts/add_text" method="post" enctype="multipart/form-data">
+    <select name="section_text">
+        <% Arraysections.forEach(section => { %>
+            <option> <%= section.section %></option>
+        <% }) %>
+    </select>
+
     <input 
         type="text"
         name="english_text"

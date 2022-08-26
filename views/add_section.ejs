@@ -1,0 +1,14 @@
+<%- include('template/head.ejs') %>
+
+Hola estas en add_section
+
+<form action="/sections/add_section" method="post">
+
+    <input 
+        type="text"
+        name="section_name"
+    >
+    <button type="submit" >Agregar</button>
+</form>
+
+<%- include('template/footer.ejs') %>

@@ -14,7 +14,9 @@ db.conexionMongoDB();
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views')
 
-app.use('/', require('./router/texts'));
+app.use('/', require('./router'));
+app.use('/texts', require( './router/CRUD_text'));
+app.use('/sections', require( './router/CRUD_section.js'));
 
 app.use((req, res, next) => {
   res.status(404).render("404", {

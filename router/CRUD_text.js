@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Text = require("../models/text");
+const Section = require("../models/section");
 const multer = require('multer');
-
-console.log(__dirname)
 
 const storage = multer.diskStorage({
   destination: './public/audio',
@@ -16,28 +15,23 @@ const upload = multer({
   storage: storage
 })
 
-router.get('/texts', (req, res) => {
-  res.render("add_text")
-  console.log("este es unnnumeri")
-  console.log(__dirname)
-})
 
-router.get('/texts/add_text', (req, res) => {
-  res.render("add_text")
-  console.log("este es unnnumeri")
-  console.log(__dirname)
+router.get('/add_text', async (req, res) => {
+  let Arraysections = await Section.find();
+  res.render('add_text', { Arraysections });
 })
 
 router.post('/add_text', upload.single('audio_text'), async (req, res) => {
   const body = req.body
   try {
     await Text.create({
+      section_text: body.section_text,
       english_text: body.english_text,
       spanish_text:  body.spanish_text,
       audio_text: req.file.filename
     })
     console.log(__dirname)
-    res.redirect('/texts')
+    res.redirect('/')
   } catch (error) {
     console.log('error', error)
   }
