@@ -1,0 +1,72 @@
+<%- include('template/head.ejs') %>
+
+  <div id="text" style="margin-bottom: 5px ; font-weight: bolder"></div>
+  <a>    <%= arrayTexts[num].spanish_text %>  </a>
+  </br></br>
+  <audio src="/audio/<%= arrayTexts[num].audio_text %>" autoplay controls></audio></br>
+
+  <script> 
+
+    var text_eng = "<%= arrayTexts[num].english_text%>";
+    console.log(text_eng)
+    text_eng = text_eng.replaceAll("&#39;", "'");
+    text_eng = text_eng.replaceAll("&#34;", '"');
+    
+    var arr_text_eng = text_eng.split("");
+
+    var text = document.getElementById("text");
+    var split_text = "";
+
+    var n = 0;
+    arr_text_eng.forEach(element => {
+      split_text = split_text + "<span id='" + n + "'>" + element + "</span>";
+      n = n + 1;
+    });
+    text.innerHTML = split_text;
+
+    n = 0;
+    arr_text_eng.forEach(element => {
+      arr_text_eng[n] = element.charCodeAt(0);
+      n = n + 1;
+    })
+    console.log(arr_text_eng);
+
+    array_length = arr_text_eng.length;
+
+    n = 0;
+    $(document).keypress(function (e) {
+      if (e.which == arr_text_eng[n]) {
+        $("#" + n + "").css({ 'color': 'green', 'font-weight': 'bolder' });
+        n = n + 1;
+        console.log(n);
+        if (n == array_length + 1){
+          console.log("terminaste")
+          console.log("<%= num %>")
+          console.log("<%= length %>")
+          pasarSiguente()
+        }
+      } else {
+        $("#" + n + "").css({ 'color': 'red', 'font-weight': 'bolder' });
+        n = n + 1;
+        console.log(n);
+        if (n == array_length + 1){
+          console.log("terminaste")
+          console.log("<%= num %>")
+          console.log("<%= length %>")
+          pasarSiguente()
+        }
+      }
+    });
+
+    function pasarSiguente() {
+      if ("<%= num %>" < (parseInt("<%= length %>") - 1) ){
+      next_num = parseInt("<%= num %>") + 1;
+      section = "<%= section %>";
+      window.location.href = "http://localhost:8081/?section=" + section + "&n=" + next_num;
+    }else {
+      window.location.href = "http://localhost:8081/";
+    }
+    }
+  </script>
+
+<%- include('template/footer.ejs') %>

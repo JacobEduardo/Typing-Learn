@@ -1,0 +1,16 @@
+<%- include('template/head.ejs') %>
+
+<% if (locals.menssenger) { %>
+    <%= menssenger %> 
+<% } %>
+ 
+<form action="/texts/delete_text" method="post">
+    <select name="section" style="padding: 3px;">
+        <% arraySections.forEach(section => { %>
+            <option> <%= section.section %></option>
+        <% }) %>
+    </select>
+    <button type="submit" >Seleccionar</button>
+</form>
+
+<%- include('template/footer.ejs') %>

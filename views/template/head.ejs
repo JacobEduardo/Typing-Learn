@@ -6,12 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Titulo</title>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
 
 <body>
-    <a href="/">index</a>
-    <a href="/texts/add_text">/texts/add_text</a>
-    <a href="/sections/add_section">/sections/add_section</a></body></html>
 
-</br>
-</br>
+    <div class="w3-bar w3-green">
+        <a href="/" class="w3-bar-item w3-button" >Home</a>
+        <div class="w3-dropdown-hover">
+            <button class="w3-button">Text</button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+              <a href="/texts/add_text" class="w3-bar-item w3-button">Create Text</a>
+              <a href="/texts/select_delete_text" class="w3-bar-item w3-button">Delete Text</a>
+            </div>
+          </div>
+          <div class="w3-dropdown-hover">
+            <button class="w3-button">Section</button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+              <a href="/sections/add_section" class="w3-bar-item w3-button">Create Section</a>
+              <a href="/sections/delete_section" class="w3-bar-item w3-button">Delete Section</a>
+            </div>
+          </div>
+    </div>
+
+
+    <div class="w3-row">
+        <div class="w3-threequarter w3-container w3-center w3-padding-large">

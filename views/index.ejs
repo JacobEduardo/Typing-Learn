@@ -1,49 +1,5 @@
 <%- include('template/head.ejs') %>
 
-  <div id="text"></div>
-  <a href="asd"><%= arraytexts[num].english_text %></a>
-</br></br>
+Hola estas en texts
 
-  <a href="asd"><%= arraytexts[num] %></a></br>
-  <a href="asd">este es un length: <%= length %></a>
-
-
-  <script>
-    var text_eng = "<%= arraytexts[1].spanish_text %>";
-    var arr_text_eng = text_eng.split("");
-
-    var text = document.getElementById("text");
-    var split_text = "";
-
-    var n = 0;
-    arr_text_eng.forEach(element => {
-      split_text = split_text + "<span id='" + n + "'>" + element + "</span>";
-      n = n + 1;
-    });
-    text.innerHTML = split_text;
-
-    n = 0;
-    arr_text_eng.forEach(element => {
-      arr_text_eng[n] = element.charCodeAt(0);
-      n = n + 1;
-    })
-    console.log(arr_text_eng);
-
-    n = 0;
-    $(document).keypress(function (e) {
-      if (e.which == arr_text_eng[n]) {
-        $("#" + n + "").css({ 'color': 'green' });
-        n = n + 1;
-        console.log(n);
-      } else {
-        $("#" + n + "").css({ 'color': 'red' });
-        n = n + 1;
-        console.log(n);
-      }
-    });
-
-  </script>
-
-</body>
-
-</html>
+<%- include('template/footer.ejs') %>

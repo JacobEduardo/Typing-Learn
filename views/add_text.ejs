@@ -3,9 +3,9 @@
 Hola estas en add_text
 
 <form action="/texts/add_text" method="post" enctype="multipart/form-data">
-    <select name="section_text">
-        <% Arraysections.forEach(section => { %>
-            <option> <%= section.section %></option>
+    <select name="section_text" style="padding: 3px;">
+        <% arraySections.forEach(element => { %>
+            <option> <%= element.section %></option>
         <% }) %>
     </select>
 

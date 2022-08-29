@@ -1,0 +1,19 @@
+<%- include('template/head.ejs') %>
+
+Hola estas en delete texts
+
+
+<table class="w3-table-all w3-bordered w3-striped w3-border test w3-hoverable">
+    <tr>
+      <th>Company</th>
+      <th>Contact</th>
+    </tr>
+    <% arrayTexts.forEach(element => { %>
+        <tr>
+            <td><%= element.english_text %></td>
+            <td><a class="w3-opacity" href="/texts/delete_text?id=<%= element._id %>&section=<%= element.section_text %>"><b>Delete</b></a></td>
+          </tr>
+    <% }) %>
+  </table>
+
+<%- include('template/footer.ejs') %>
