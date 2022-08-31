@@ -2,7 +2,7 @@ const express = require('express');
 const { model } = require('mongoose');
 const router = express.Router();
 const Section = require("../models/section");
-
+const Text = require("../models/text");
 
 router.get('/add_section', async (req, res) => {
 
@@ -22,9 +22,11 @@ router.post('/add_section', async (req, res) => {
         await Section.create({
             section: body.section_name,
         })
-        res.redirect('/')
+        let arraySections = await Section.find();
+        res.render('add_section', { arraySections , right: "Successfully added" })
     } catch (error) {
-        console.log('error', error)
+        let arraySections = await Section.find();
+        res.render('add_section', { arraySections , wrong: "Audio file name already exists" })
     }
 })
 
@@ -43,13 +45,14 @@ router.get('/delete_section', async (req, res) => {
 router.post('/delete_section', async (req, res) => {
     let section_name = req.body.section;
     console.log(section_name)
-    let arraySections = await Section.find();
     try {
         let eee = await Section.deleteOne({ section: section_name });
-        res.render('delete_section', { arraySections, menssenger: "Eliminado Correctamente" });
+        let aaa = await Text.deleteMany({ section_text: section_name });
+        let arraySections = await Section.find();
+        res.render('delete_section', { arraySections, right: "The section was deleted successfully"})
     } catch (error) {
-        console.log(error)
-        res.render('delete_section', { arraySections, menssenger: "Error" });
+        let arraySections = await Section.find();
+        res.render('delete_section', { arraySections, wrong: "An error has occurred."})
     }
 })
 

@@ -1,24 +1,29 @@
 <%- include('template/head.ejs') %>
 
-Hola estas en add_text
-
-<form action="/texts/add_text" method="post" enctype="multipart/form-data">
-    <select name="section_text" style="padding: 3px;">
+<form class="w3-container" action="/texts/add_text" method="post" enctype="multipart/form-data">
+    <h3>Create a practice text</h3>
+    <% if (locals.wrong) { %>
+        <a class="w3-text-red "><%= wrong %> </a>
+    <% } %>
+    <% if (locals.right) { %>
+        <a class="w3-text-green "><%= right %> </a>
+    <% } %>
+    <p>Select a text, a translation, and an audio file.</p>
+    <select name="section_text" style="padding: 8px; min-width: 200px;">
         <% arraySections.forEach(element => { %>
             <option> <%= element.section %></option>
         <% }) %>
     </select>
-
-    <input 
-        type="text"
-        name="english_text"
-    >
-    <input 
-        type="text"
-        name="spanish_text"
-    >
+    <p>      
+    <label class="w3-sans-serif"><b>Text</b></label>
+    <input class="w3-input w3-border" name="english_text" type="text"></p>
+    <p>      
+    <label class="w3-sans-serif"><b>Translation</b></label>
+    <input class="w3-input w3-border" name="spanish_text" type="text"></p>
     <input type="file" name="audio_text">
-    <button type="submit" >Agregar</button>
+    <p>      
+        
+    <button class="w3-btn w3-green">Upload</button></p>
 </form>
 
 <%- include('template/footer.ejs') %>

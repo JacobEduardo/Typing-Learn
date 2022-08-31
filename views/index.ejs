@@ -1,5 +1,66 @@
 <%- include('template/head.ejs') %>
 
-Hola estas en texts
+  <div class="w3-center">
+  </br>
+    <div id="text" style="margin-bottom: 5px ; font-weight: bolder"></div>
+    <a>
+        Prepara tus propias colecciones, añade textos y practica mecanografía. Además, puede agregar una traducción y aprender el idioma al mismo tiempo.
+    </a>
+    </br></br>
+    <audio class="w3-center" src="/audio/test.mp3" autoplay controls></audio></br>
+  </div>
 
-<%- include('template/footer.ejs') %>
+  <script>
+
+    var text_eng = "Prepare your own collections, add texts and practice typing. Also, you can add a translation and learn the language at the same time.";
+    text_eng = text_eng.replaceAll("&#39;", "'");
+    text_eng = text_eng.replaceAll("&#34;", '"');
+
+    var arr_text_eng = text_eng.split("");
+
+    var text = document.getElementById("text");
+    var split_text = "";
+
+    var n = 0;
+    arr_text_eng.forEach(element => {
+      split_text = split_text + "<span id='" + n + "'>" + element + "</span>";
+      n = n + 1;
+    });
+    text.innerHTML = split_text;
+
+    n = 0;
+    arr_text_eng.forEach(element => {
+      arr_text_eng[n] = element.charCodeAt(0);
+      n = n + 1;
+    })
+    console.log(arr_text_eng);
+
+    array_length = arr_text_eng.length;
+
+    n = 0;
+    $(document).keypress(function (e) {
+      if (e.which == arr_text_eng[n]) {
+        $("#" + n + "").css({ 'color': 'green', 'font-weight': 'bolder' });
+        n = n + 1;
+        console.log(n);
+        if (n == array_length + 1) {
+          console.log("terminaste")
+          pasarSiguente()
+        }
+      } else {
+        $("#" + n + "").css({ 'color': 'red', 'font-weight': 'bolder' });
+        n = n + 1;
+        console.log(n);
+        if (n == array_length + 1) {
+          console.log("terminaste")
+          pasarSiguente()
+        }
+      }
+    });
+
+    function pasarSiguente() {
+        window.location.href = "/";
+      }
+  </script>
+
+  <%- include('template/footer.ejs') %>

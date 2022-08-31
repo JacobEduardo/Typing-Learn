@@ -8,8 +8,11 @@ router.get('/', async (req, res) => {
     if(req.query.section && req.query.n ){
         try {
             let arrayTexts = await Text.find({section_text : req.query.section });
+            if(arrayTexts.length > 0){
             res.render('play', { arrayTexts, length: arrayTexts.length, num: req.query.n , arraySections, section: req.query.section});
-            console.log(arrayTexts)
+            }else{
+                res.render('collectionError', { arraySections });
+            }
           } catch (e) {
             console.log(e);
         }

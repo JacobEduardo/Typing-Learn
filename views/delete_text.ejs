@@ -1,12 +1,12 @@
 <%- include('template/head.ejs') %>
 
-Hola estas en delete texts
-
-
+<div class="w3-container" >
+  <h3>Delete a text</h3>
+  <p>Select a text to delate </p>
 <table class="w3-table-all w3-bordered w3-striped w3-border test w3-hoverable">
     <tr>
-      <th>Company</th>
-      <th>Contact</th>
+      <th>Texts</th>
+      <th>Delete</th>
     </tr>
     <% arrayTexts.forEach(element => { %>
         <tr>
@@ -15,5 +15,5 @@ Hola estas en delete texts
           </tr>
     <% }) %>
   </table>
-
+</div><br>
 <%- include('template/footer.ejs') %>

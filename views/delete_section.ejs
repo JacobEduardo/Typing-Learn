@@ -1,16 +1,20 @@
 <%- include('template/head.ejs') %>
-
-<% if (locals.menssenger) { %>
-    <%= menssenger %> 
-<% } %>
  
-<form action="/sections/delete_section" method="post">
-    <select name="section" style="padding: 3px;">
+<form class="w3-container" action="/sections/delete_section" method="post">
+    <h3>Delete a collection</h3>
+    <% if (locals.wrong) { %>
+        <a class="w3-text-red "><%= wrong %> </a>
+    <% } %>
+    <% if (locals.right) { %>
+        <a class="w3-text-green "><%= right %> </a>
+    <% } %>
+    <p>Select a collection to delete.</p>
+    <select name="section" style="padding: 8px; min-width: 350px;">
         <% arraySections.forEach(section => { %>
             <option> <%= section.section %></option>
         <% }) %>
-    </select>
-    <button type="submit" >Delete</button>
+    </select><br><br>
+    <button type="submit" class="w3-btn w3-red">Delete Collection</button></p>
 </form>
 
 <%- include('template/footer.ejs') %>

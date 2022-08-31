@@ -1,14 +1,17 @@
 <%- include('template/head.ejs') %>
 
-Hola estas en add_section
-
-<form action="/sections/add_section" method="post">
-
-    <input 
-        type="text"
-        name="section_name"
-    >
-    <button type="submit" >Agregar</button>
+<form class="w3-container" action="/sections/add_section" method="post">
+    <h3>Add a section</h3>
+    <% if (locals.wrong) { %>
+        <a class="w3-text-red "><%= wrong %> </a>
+    <% } %>
+    <% if (locals.right) { %>
+        <a class="w3-text-green "><%= right %> </a>
+    <% } %>
+    <p>Select a collection to delete.</p>
+    <input class="w3-input w3-border" name="section_name" type="text" style="max-width: 300px"></p>
+    <p>  
+    <button type="submit" class="w3-btn w3-green">Add Collections</button></p>
 </form>
 
 <%- include('template/footer.ejs') %>

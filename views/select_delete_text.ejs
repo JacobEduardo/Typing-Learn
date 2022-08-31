@@ -1,16 +1,14 @@
 <%- include('template/head.ejs') %>
 
-<% if (locals.menssenger) { %>
-    <%= menssenger %> 
-<% } %>
- 
-<form action="/texts/delete_text" method="post">
-    <select name="section" style="padding: 3px;">
+<form class="w3-container" action="/texts/delete_text" method="post">
+    <h3>Delete a text</h3>
+<p>Select a collection to edit </p>
+    <select name="section" style="padding: 5px;">
         <% arraySections.forEach(section => { %>
             <option> <%= section.section %></option>
         <% }) %>
-    </select>
-    <button type="submit" >Seleccionar</button>
+    </select><br><br>
+    <button type="submit" class="w3-btn w3-red">Select</button></p>
 </form>
 
-<%- include('template/footer.ejs') %>
+<%- include('template/footer.ejs') %>   

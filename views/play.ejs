@@ -1,17 +1,21 @@
 <%- include('template/head.ejs') %>
+  <div class="w3-center">
+  </br>
+    <div id="text" style="margin-bottom: 5px ; font-weight: bolder"></div>
+    <a>
+      <%= arrayTexts[num].spanish_text %>
+    </a>
+    </br></br>
+    <audio class="w3-center" src="/audio/<%= arrayTexts[num].audio_text %>" autoplay controls></audio></br>
+  </div>
 
-  <div id="text" style="margin-bottom: 5px ; font-weight: bolder"></div>
-  <a>    <%= arrayTexts[num].spanish_text %>  </a>
-  </br></br>
-  <audio src="/audio/<%= arrayTexts[num].audio_text %>" autoplay controls></audio></br>
-
-  <script> 
+  <script>
 
     var text_eng = "<%= arrayTexts[num].english_text%>";
     console.log(text_eng)
     text_eng = text_eng.replaceAll("&#39;", "'");
     text_eng = text_eng.replaceAll("&#34;", '"');
-    
+
     var arr_text_eng = text_eng.split("");
 
     var text = document.getElementById("text");
@@ -39,7 +43,7 @@
         $("#" + n + "").css({ 'color': 'green', 'font-weight': 'bolder' });
         n = n + 1;
         console.log(n);
-        if (n == array_length + 1){
+        if (n == array_length + 1) {
           console.log("terminaste")
           console.log("<%= num %>")
           console.log("<%= length %>")
@@ -49,7 +53,7 @@
         $("#" + n + "").css({ 'color': 'red', 'font-weight': 'bolder' });
         n = n + 1;
         console.log(n);
-        if (n == array_length + 1){
+        if (n == array_length + 1) {
           console.log("terminaste")
           console.log("<%= num %>")
           console.log("<%= length %>")
@@ -59,14 +63,14 @@
     });
 
     function pasarSiguente() {
-      if ("<%= num %>" < (parseInt("<%= length %>") - 1) ){
-      next_num = parseInt("<%= num %>") + 1;
-      section = "<%= section %>";
-      window.location.href = "http://localhost:8081/?section=" + section + "&n=" + next_num;
-    }else {
-      window.location.href = "http://localhost:8081/";
-    }
+      if ("<%= num %>" < (parseInt("<%= length %>") - 1)) {
+        next_num = parseInt("<%= num %>") + 1;
+        section = "<%= section %>";
+        window.location.href = "http://localhost:8081/?section=" + section + "&n=" + next_num;
+      } else {
+        window.location.href = "http://localhost:8081/";
+      }
     }
   </script>
 
-<%- include('template/footer.ejs') %>
+  <%- include('template/footer.ejs') %>
