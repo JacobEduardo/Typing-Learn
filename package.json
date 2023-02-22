@@ -3,10 +3,14 @@
     "body-parser": "^1.20.0",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "ibm-watson": "^7.1.2",
     "mime-types": "^2.1.35",
     "mongoose": "^6.5.2",
     "morgan": "^1.10.0",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.0",
+    "watson-developer-cloud": "^4.0.0"
   },
   "name": "typing-learn",
   "description": "Web application to practice English and typing.",
