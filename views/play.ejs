@@ -6,9 +6,18 @@
       <%= arrayTexts[num].spanish_text %>
     </a>
     </br></br>
-    <audio class="w3-center" src="/audio/<%= arrayTexts[num].audio_text %>" autoplay controls></audio></br>
+    <audio class="w3-center audio-element" src="/audio/<%= arrayTexts[num].audio_text %>" autoplay controls></audio></br>
   </div>
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('keydown', function(event) {
+            if (event.key === '|') {
+                const audio = document.querySelector('.audio-element');
+                audio.play();
+            }
+        });
+    });
+</script>
   <script>
 
     var text_eng = "<%= arrayTexts[num].english_text%>";
@@ -39,28 +48,33 @@
 
     n = 0;
     $(document).keypress(function (e) {
-      if (e.which == arr_text_eng[n]) {
+    // Salir de la función si se presiona la tecla "|"
+    if (e.key === '|') {
+        return;
+    }
+
+    if (e.which == arr_text_eng[n]) {
         $("#" + n + "").css({ 'color': 'green', 'font-weight': 'bolder' });
         n = n + 1;
         console.log(n);
         if (n == array_length + 1) {
-          console.log("terminaste")
-          console.log("<%= num %>")
-          console.log("<%= length %>")
-          pasarSiguente()
+            console.log("terminaste")
+            console.log("<%= num %>")
+            console.log("<%= length %>")
+            pasarSiguente()
         }
-      } else {
+    } else {
         $("#" + n + "").css({ 'color': 'red', 'font-weight': 'bolder' });
         n = n + 1;
         console.log(n);
         if (n == array_length + 1) {
-          console.log("terminaste")
-          console.log("<%= num %>")
-          console.log("<%= length %>")
-          pasarSiguente()
+            console.log("terminaste")
+            console.log("<%= num %>")
+            console.log("<%= length %>")
+            pasarSiguente()
         }
-      }
-    });
+    }
+});
 
     function pasarSiguente() {
       if ("<%= num %>" < (parseInt("<%= length %>") - 1)) {
