@@ -67,7 +67,7 @@ router.post('/add_text', upload.single('audio_text'), async (req, res) => {
       console.log(filename)
       console.log(text_ing)
       const synthesizeParams = {
-        text: text_ing,
+        text: `<speak><prosody rate="slow">${text_ing}</prosody></speak>`,
         accept: 'audio/wav',
         voice: 'en-US_KevinV3Voice',
       };
