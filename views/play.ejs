@@ -80,9 +80,9 @@
       if ("<%= num %>" < (parseInt("<%= length %>") - 1)) {
         next_num = parseInt("<%= num %>") + 1;
         section = "<%= section %>";
-        window.location.href = "http://localhost:8081/?section=" + section + "&n=" + next_num;
+        window.location.href = window.location.origin + "/?section="  + section + "&n=" + next_num;
       } else {
-        window.location.href = "http://localhost:8081/";
+        window.location.href = window.location.origin;
       }
     }
   </script>
